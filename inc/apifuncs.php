@@ -18,7 +18,7 @@ function getNetworksForUser( $user )
 function getChannelsForNetworkForUser( $user, $network )
 {
 	$unfilteredChannelList 	= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network );
-	$unsortedChannelList 	= preg_grep( "/^#+/" , array_diff( $unfilteredChannelList, array( '..', '.' ) ) );
+	$unsortedChannelList    = array_diff( $unfilteredChannelList, array( '..', '.' ) );
 	$channelList 			= array_values( $unsortedChannelList );
 	return $channelList;
 }
